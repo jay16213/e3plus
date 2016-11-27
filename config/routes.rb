@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
   post 'login/login'
   get 'login/logout'
   get 'login/list_users'
+
+  get 'main/student_index'
+  get 'main/ta_index'
 
   resource :users
 
