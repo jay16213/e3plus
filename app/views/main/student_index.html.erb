@@ -1,2 +1,21 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<!--the templete for this page is at app/views/layouts/main.html.erb-->
+
+<!--for development only, delete this block after finish this page-->
+<h1>Main#stduent_index</h1>
+<p>Find me in app/views/main/student_index.html.erb</p>
+<!--**************************************************************-->
+
+<!--list all courses-->
+<!--TO DO: add link_to tag to course.name(back-end)-->
+<ul>
+    <%=@courses.each do |course| %>
+        <li><%= course.name %></li>
+    <% end %>
+</ul>
+<!--****************-->
+
+<!--**********TO DO**********-->
+<!--list all announces-->
+
+<!--list all calendar-->
+<!--*************************-->
