@@ -16,7 +16,7 @@ class MainController < ApplicationController
       when 'student'
         redirect_to action: 'student_index'
       when 'ta'
-        redirect_to action: 'ta'
+        redirect_to action: 'ta_index'
     end
   end
 
