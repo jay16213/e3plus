@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   get 'main/student_index'
   get 'main/ta_index'
-
+  get 'main/course'
+  
   resource :users
 
   #home page

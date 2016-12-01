@@ -10,6 +10,10 @@ class MainController < ApplicationController
   def ta_index
   end
 
+  #show course page
+  def course
+  end
+
   private
 
     def set_user_info

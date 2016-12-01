@@ -4,10 +4,33 @@
         <!--add things you need-->
     </head>
     <body>
-        <!--add things you need-->
+        <!--add other things you need-->
 
         <!--rails will replace yield with html files in app/views/main/-->
         <%= yield %>
-        <!--***********************************************************-->
+
+        <!--logout button-->
+        <%= link_to '登出', :controller => 'login', :action => :logout %>
+        
+        <!--list all courses-->
+        <ul>
+            <% @courses.each do |course| %>
+            <li><%= link_to course.name, :controller => 'main', :action => :course, :id => course.id %></li>
+            <% end %>
+        </ul>
+
+        <!--list all announces-->
+        <% @courses.each do |course| %>
+            <% course.announces.each do |announce| %>
+                <!--the tag of the announce-->
+                    <%= announce.tag %>
+                <!--the topic of the announce-->
+                    <%= announce.topic %>
+                <!--the content of the announce-->
+            <%= announce.content %>
+            <% end %>
+        <% end %>
+
+<!--list all calendar-->
     </body>
 </html>
