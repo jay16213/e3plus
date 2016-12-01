@@ -34,9 +34,9 @@ class LoginController < ApplicationController
 
   #logout action
   def logout
+    
+    session[:user_id] = nil
+    redirect_to :action => 'login'
   end
 
-  #list users
-  def list_users
-  end
 end

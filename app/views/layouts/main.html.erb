@@ -6,31 +6,23 @@
     <body>
         <!--add other things you need-->
 
-        <!--rails will replace yield with html files in app/views/main/-->
-        <%= yield %>
+
+        <!--back home-->
+        <%= link_to '回首頁', controller: 'main', action: :home %>
 
         <!--logout button-->
-        <%= link_to '登出', :controller => 'login', :action => :logout %>
+        <%= link_to '登出', controller: 'login', action: :logout %>
+
+        <!--rails will replace yield with html files in app/views/main/-->
+        <%= yield %>
         
         <!--list all courses-->
         <ul>
             <% @courses.each do |course| %>
-            <li><%= link_to course.name, :controller => 'main', :action => :course, :id => course.id %></li>
+            <li><%= link_to course.name, controller: 'main', action: :course, id: course.id %></li>
             <% end %>
         </ul>
 
-        <!--list all announces-->
-        <% @courses.each do |course| %>
-            <% course.announces.each do |announce| %>
-                <!--the tag of the announce-->
-                    <%= announce.tag %>
-                <!--the topic of the announce-->
-                    <%= announce.topic %>
-                <!--the content of the announce-->
-            <%= announce.content %>
-            <% end %>
-        <% end %>
-
-<!--list all calendar-->
+        <!--list all calendar-->
     </body>
 </html>

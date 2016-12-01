@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
 
+  #for login
   post 'login/login'
+  #for logout
+  get 'login/login'
+
   get 'login/logout'
-  get 'login/list_users'
 
   get 'main/student_index'
   get 'main/ta_index'
   get 'main/course'
-  
+
+  #redirect to home page
+  get 'main/home'
+
   resource :users
 
-  #home page
+  #login page, the entrance of e3plus
   root to: 'login#login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

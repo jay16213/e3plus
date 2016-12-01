@@ -5,8 +5,14 @@
 <p>Find me in app/views/main/student_index.html.erb</p>
 <!--**************************************************************-->
 
-
-
-<!--**********TO DO**********-->
-
-<!--*************************-->
+<!--list all announces-->
+<% @courses.each do |course| %>
+    <% course.announces.each do |announce| %>
+        <!--the tag of the announce-->
+        <%= announce.tag %>
+        <!--the topic of the announce-->
+        <%= announce.topic %>
+        <!--the content of the announce-->
+        <%= announce.content %>
+    <% end %>
+<% end %>
