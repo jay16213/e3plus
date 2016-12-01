@@ -22,6 +22,7 @@ class MainController < ApplicationController
 
   #show course page
   def course
+    @course = Course.find(params[:id])
   end
 
   private
