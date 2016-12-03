@@ -25,6 +25,32 @@ class MainController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+####################FOR TA####################
+  def new_announce
+    @announce = Announce.new
+  end
+
+  def create_announce
+    @announce = Announce.new(params[:announce])
+    @announce.save
+
+    #TO DO: judge what page is user at now, course or ta_index?
+    redirect_to action: 'ta_index'
+  end
+
+  def edit_announce
+    @announce = Announce.find(params[:id])
+  end
+
+  def destroy_announce
+    @announce = Announce.find(params[:id])
+    @announce.destroy
+    
+    #TO DO: judge what page is user at, course or ta_index
+    redirect_to action: 'ta_index'
+  end
+##############################################
+
   private
 
     def set_user_info
