@@ -1,0 +1,18 @@
+<!--form for new & edit announce-->
+
+<!--TO DO(if have time): draft & schedule-->
+
+<!--input tag-->
+<%= f.label :tag, "分類標籤" %>
+<%= select_tag options_for_select "<option>grneral</option><option>exam</option><option>HW</option>" %>
+
+<!--input topic-->
+<%= f.label :topic, "公告標題" %>
+<%= f.text_field :topic %>
+
+<!--input content-->
+<%= f.label :content, "公告內容" %>
+<%= f.text_area :content, size: "colsxrols" %>
+
+<!--sumit-->
+<%= f.sumit "發佈公告" %>

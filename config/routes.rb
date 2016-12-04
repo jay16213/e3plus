@@ -2,14 +2,20 @@ Rails.application.routes.draw do
 
   #for login
   post 'login/login'
-  #for logout
   get 'login/login'
 
+  #for logout
   get 'login/logout'
 
   get 'main/student_index'
   get 'main/ta_index'
   get 'main/course'
+
+  #announce system
+  get 'main/new_announce'
+  get 'main/edit_announce'
+  post 'main/create_announce'
+  delete 'main/destroy_announce'
 
   #redirect to home page
   get 'main/home'
