@@ -19,6 +19,7 @@ a {
 	padding: 5px 0;
 	width: 100%;
 	height: 40px;
+	font-size: large;
 }
 
 #content {
@@ -82,8 +83,49 @@ a {
 #sidebar ul li:hover {
 	color: gray;
 }
-/*
+
 #board {
-	background-color: red;
+	background-color: white;
+	margin: 20px 30px;
+	height: 420px;
+	position: center;
 }
-*/
+
+#board_nav {
+	background-color: green;
+}
+
+#board_content {
+	background-color: yellow;
+	height: 370px;
+	margin: 0;
+}
+
+#board_nav ul{
+	height: 50px;
+}
+
+#board_nav ul li {
+	padding: 5px;
+	background-color: pink;
+	margin: 10px 10px;
+	border: solid;
+	list-style: outside none none;
+	display: inline-block;
+	text-align: center;
+}
+
+#board_nav ul li:hover {
+	background-color: gray;
+}
+
+
+#board_content ul {
+	height: 100%;
+	padding: 20px;
+}
+
+#board_content ul li {
+	background-color: orange;
+	list-style: outside none none;
+}
