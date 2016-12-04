@@ -1,0 +1,4 @@
+/* this is a stylesheet for app/views/layouts/main.html.erb */
+* {
+	background-color: blue;
+}
