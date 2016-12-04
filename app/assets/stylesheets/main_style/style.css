@@ -61,8 +61,29 @@ a {
 	color: yellow;
 }
 
+#sidebar_title{
+	background-color: black;
+	color: white;
+	padding: 10px;
+	padding-left: 20px;
+}
+
+#sidebar ul {
+	padding: 3px;
+}
+
+#sidebar ul li {
+	padding: 5px;
+	margin: 5px;
+	list-style: outside none none;
+}
+
+
+#sidebar ul li:hover {
+	color: gray;
+}
 /*
-#nav a {
-	padding: 20px;
+#board {
+	background-color: red;
 }
 */

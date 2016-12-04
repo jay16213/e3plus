@@ -23,11 +23,16 @@
 				</div>
 
 				<div id="content">
-        	<!--rails will replace yield with corresponding html files in app/views/main/-->
-        	<%= yield %>
+					<div id="board">
+        		<!--rails will replace yield with corresponding html files in app/views/main/-->
+        		<%= yield %>
+					</div>
 				</div>
         
 				<div id="sidebar">
+						<div id="sidebar_title">
+							<h3>課程</h3>
+						</div>
         	<!--list all courses and their links-->
         	<ul>
         	    <% @courses.each do |course| %>
@@ -36,7 +41,6 @@
         	</ul>
 				</div>
 
-        <!--list all calendar-->
-			</div>
+			</div> <!-- end of wraper -->
     </body>
 </html>
