@@ -6,25 +6,37 @@
 				<%= stylesheet_link_tag "main" %>
     </head>
     <body>
-        <!--add other things you need-->
+			<div id="wraper">
+				<div id="header">
+					<div id="logo"> <!--back home-->
+        		<%= link_to '回首頁', controller: 'main', action: :home %>
+					</div>
 
-        <!--back home-->
-        <%= link_to '回首頁', controller: 'main', action: :home %>
+					<div id="nav">
+						<ul>
+        		<!--logout button-->
+        		<li><%= link_to '登出', controller: 'login', action: :logout %></li>
+						<li><a href="#">行事曆</a></li>
+						<li><a href="#">作業清單</a></li>
+						</ul>
+					</div>
+				</div>
 
-        <!--logout button-->
-        <%= link_to '登出', controller: 'login', action: :logout %>
-
-        <!--rails will replace yield with corresponding html files in app/views/main/-->
-        <%= yield %>
+				<div id="content">
+        	<!--rails will replace yield with corresponding html files in app/views/main/-->
+        	<%= yield %>
+				</div>
         
-        <!--list all courses and their links-->
-        <!--just change the html tags by yourself-->
-        <ul>
-            <% @courses.each do |course| %>
-            <li><%= link_to course.name, controller: 'main', action: :course, id: course.id %></li>
-            <% end %>
-        </ul>
+				<div id="sidebar">
+        	<!--list all courses and their links-->
+        	<ul>
+        	    <% @courses.each do |course| %>
+        	    <li><%= link_to course.name, controller: 'main', action: :course, id: course.id %></li>
+        	    <% end %>
+        	</ul>
+				</div>
 
         <!--list all calendar-->
+			</div>
     </body>
 </html>

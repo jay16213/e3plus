@@ -1,4 +1,68 @@
 /* this is a stylesheet for app/views/layouts/main.html.erb */
 * {
-	background-color: blue;
+	margin: 0px;
+	padding: 0px;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#wraper {
+	background-color: blue;
+	width: 100%;
+}
+
+#header {
+	background-color: DarkSlateGray; 
+	padding: 5px 0;
+	width: 100%;
+	height: 40px;
+}
+
+#content {
+	background-color: CadetBlue;
+	width: 85%;
+	height: 500px;
+	float: right;
+}
+
+#sidebar {
+	background-color: LightGoldenRodYellow;
+	width: 15%;
+	height: 500px;
+	float: left;
+}
+
+#logo {
+	float: left;
+	padding: 10px 40px;
+	color: white;
+}
+
+#logo:hover {
+	color: yellow;
+}
+
+#nav {
+	margin: 0;
+	float: right;
+}
+
+#nav ul li {
+	display: inline-block;
+	color: white;
+	padding: 10px 10px;
+	margin-right: 10px;
+}
+
+#nav ul li:hover {
+	color: yellow;
+}
+
+/*
+#nav a {
+	padding: 20px;
+}
+*/
