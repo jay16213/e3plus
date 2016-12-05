@@ -1,9 +1,9 @@
 class AnnouncesController < ApplicationController
     before_action :set_announce, only: [ :show, :edit, :update, :destroy ]
     before_action :set_courses, only: [ :new, :create, :edit, :update ]
-
-    layout 'ta'
     
+    layout "ta", only: [ :new, :edit ]
+
     def index
         @announces = Announce.find(User.find(session[:user_id]).courses.id).all
     end

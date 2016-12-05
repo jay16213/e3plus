@@ -1,6 +1,0 @@
-<%= form_for @announce, :url => {action: 'update_announce', id: @announce } do |f| %>
-    <!--include _announce_form.html.erb-->
-    <%= render partial: 'announce_form', locals: { f: f } %>
-    
-    <%= f.submit "修改公告" %>
-<% end %>

@@ -13,7 +13,7 @@
 
 				<div id="header">
 					<div id="logo"> <!--back home-->
-        		<%= link_to '回首頁', student_index %>
+        		<%= link_to '回首頁', :student_index %>
 					</div>
 					<div id="nav">
 						<ul>
@@ -50,7 +50,7 @@
         	<!--list all courses and their links-->
         	<ul>
         	    <% @courses.each do |course| %>
-        	    <li><%= link_to course.name, controller: 'student' action: :course, id: course.id %></li>
+        	    <li><%= link_to course.name, controller: 'student', action: 'course', id: course.id %></li>
         	    <% end %>
         	</ul>
 				</div>
