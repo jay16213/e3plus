@@ -30,7 +30,7 @@ class AnnouncesController < ApplicationController
 
     def update
         if @announce.update(announce_params)
-            redirect_to action: 'show'
+            redirect_to controller: 'ta', action: 'index'
         else
             redirect_to action: 'edit'
         end
