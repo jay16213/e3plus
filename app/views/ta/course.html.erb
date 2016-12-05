@@ -1,0 +1,18 @@
+<!--the templete of this page is at app/views/layouts/ta.html.erb-->
+
+<!--for development only, delete this block after finish this page-->
+<h3>現在位於 app/views/ta/course.html.erb</h3>
+<p>完成本頁面後請把這段文字刪除！</p>
+<!--**************************************************************-->
+
+<!--list all announces-->
+<% @course.announces.each do |announce| %>
+    <!--the tag of the announce-->
+    <%= announce.tag %>
+    <!--the topic of the announce-->
+    <%= announce.topic %>
+    <!--the content of the announce-->
+    <%= announce.content %>
+    <%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %>
+    <%= button_to '刪除公告', controller: 'announces', action: :destroy, id: announce.id, method: :delete, data: { confirm: "確定刪除此公告?" } %>
+<% end %>

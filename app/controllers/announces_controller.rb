@@ -1,8 +1,11 @@
 class AnnouncesController < ApplicationController
     before_action :set_announce, only: [ :show, :edit, :update, :destroy ]
+    before_action :set_courses, only: [ :new, :create, :edit, :update ]
 
+    layout 'ta'
+    
     def index
-        @announces = Announce.find(User.find(session[:user_id]).courses.id)
+        @announces = Announce.find(User.find(session[:user_id]).courses.id).all
     end
 
     def show
@@ -15,7 +18,7 @@ class AnnouncesController < ApplicationController
     def create
         @announce = Announce.new(announce_params)
         if @announce.save
-            redirect_to action: 'index'
+            redirect_to controller: 'ta', action: 'index'
         else
             flashp[:notice] = '所有欄位皆為必填！'
             redirect_to action: new
@@ -35,13 +38,17 @@ class AnnouncesController < ApplicationController
 
     def destroy
         @announce.destroy
-        redirect_to action: 'index'
+        redirect_to controller: 'ta', action: 'course'
     end
 
     private
 
     def set_announce
         @announce = Announce.find(params[:id])
+    end
+
+    def set_courses
+        @courses = User.find(session[:user_id]).courses.all
     end
 
     #data validation

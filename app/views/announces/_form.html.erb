@@ -1,0 +1,20 @@
+<!--form for new & edit announce-->
+
+<!--TO DO(if have time): draft & schedule-->
+
+<!--choose course-->
+<%= f.label :course, "課程" %>
+<%= f.select 'course_id', options_for_select(@courses.collect{ |c| [c.name, c.id] }) %>
+<!--choose tag-->
+<%= f.label :tag, "標籤" %>
+<%= f.select 'tag', options_for_select(['一般', '考試', '作業']) %>
+
+<!--input topic-->
+<%= f.label :topic, "標題" %>
+<%= f.text_field :topic %>
+
+<!--input content-->
+<%= f.label :content, "公告內容" %>
+<%= f.text_area :content %>
+
+<p style="color: red"><%= flash[:notice] %></p>

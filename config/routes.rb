@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   #for logout
   get 'login/logout'
 
-  get 'main/student_index'
-  get 'main/ta_index'
-  get 'main/course'
+  resource :announces
 
-  resource :student
   get 'student/index'
   get 'student/course'
 
+  get 'ta/index'
+  get 'ta/course'
+  
   #login page, the entrance of e3plus
   root to: 'login#login'
   # The priority is based upon order of creation: first created -> highest priority.

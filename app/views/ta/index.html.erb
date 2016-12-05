@@ -1,10 +1,11 @@
-<!--the templete of this page is at app/views/layouts/student.html.erb-->
+<!--the templete of this page is at app/views/layouts/ta.html.erb-->
 
 <!--for development only, delete this block after finish this page-->
-<h3>現在位於 app/views/student/index.html.erb</h3>
-<p>這是學生登入後的首頁！</p>
+<h3>現在位於 app/views/ta/index.html.erb</h3>
+<p>這是助教登入後的首頁！</p>
 <p>完成本頁面後請把這段文字刪除！</p>
 <!--**************************************************************-->
+<%= link_to '新增公告', controller: 'announces', action: :new %>
 
 <!--list all announces-->
 <% @courses.each do |course| %>
