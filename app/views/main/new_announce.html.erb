@@ -1,0 +1,6 @@
+<%= form_for @announce, :url => {action: 'create_announce'} do |f| %>
+    <!--include _announce_form.html.erb-->
+    <%= render partial: 'announce_form', locals: { f: f } %>
+    
+    <%= f.submit "立即發佈" %>    
+<% end %>

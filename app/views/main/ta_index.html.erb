@@ -6,6 +6,7 @@
 <p>完成本頁面後請把這段文字刪除！</p>
 <!--**************************************************************-->
 
+<%= link_to  "新增公告", action: :new_announce %>
 <!--list all announces-->
 <% @courses.each do |course| %>
     <% course.announces.each do |announce| %>
@@ -15,5 +16,8 @@
         <%= announce.topic %>
         <!--the content of the announce-->
         <%= announce.content %>
+
+        <%= link_to  "修改公告", action: :edit_announce, id: announce %>
+        <%= button_to '刪除公告', main_ta_announce(@announce), method: :delete, data: { confirm: "確定刪除此公告?" } %>
     <% end %>
 <% end %>

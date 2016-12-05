@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'main/new_announce'
   get 'main/edit_announce'
   post 'main/create_announce'
+  patch 'main/update_announce'
+  put 'main/update_announce'
   delete 'main/destroy_announce'
 
   #redirect to home page
