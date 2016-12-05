@@ -16,7 +16,7 @@ class LoginController < ApplicationController
                 #redirect to different pages depend on identity
                 case user.identity
                     when "student"
-                        redirect_to :action => 'student_index', :controller => 'main'
+                        redirect_to controller: 'student', action: 'index'
                     when "ta"
                         redirect_to :action => 'ta_index', :controller => 'main'
                     else

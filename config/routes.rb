@@ -11,18 +11,9 @@ Rails.application.routes.draw do
   get 'main/ta_index'
   get 'main/course'
 
-  #announce system
-  get 'main/new_announce'
-  get 'main/edit_announce'
-  post 'main/create_announce'
-  patch 'main/update_announce'
-  put 'main/update_announce'
-  delete 'main/destroy_announce'
-
-  #redirect to home page
-  get 'main/home'
-
-  resource :users
+  resource :student
+  get 'student/index'
+  get 'student/course'
 
   #login page, the entrance of e3plus
   root to: 'login#login'

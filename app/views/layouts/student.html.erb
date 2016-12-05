@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>E3plus</title>
+				<!-- add stylesheet at app/assets/stylesheets/style_main.css -->
+				<%= stylesheet_link_tag "main" %>
+				<!-- add javascript at app/assets/javascript/script_main.js -->
+				<%= javascript_include_tag "main" %>
+		<%= csrf_meta_tags %>
+    </head>
+    <body>
+			<div id="wraper">
+
+				<div id="header">
+					<div id="logo"> <!--back home-->
+        		<%= link_to '回首頁', action: :index %>
+					</div>
+					<div id="nav">
+						<ul>
+        		<!--logout button-->
+        		<li><%= link_to '登出', controller: 'login', action: :logout %></li>
+						<li><a href="#">行事曆</a></li>
+						<li><a href="#">作業清單</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="content">
+					<div id="board">
+						<div id="board_nav">
+							<ul>
+								<li>標籤</li>
+								<li>課程</li>
+								<li>dead line</li>
+							</ul>
+						</div>
+						<div id="board_content">
+							<ul>
+        				<!--rails will replace yield with corresponding html files in app/views/main/-->
+								<li><%= yield %></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+        
+				<div id="sidebar">
+						<div id="sidebar_title">
+							<h3>課程</h3>
+						</div>
+        	<!--list all courses and their links-->
+        	<ul>
+        	    <% @courses.each do |course| %>
+        	    <li><%= link_to course.name, action: :course, id: course.id %></li>
+        	    <% end %>
+        	</ul>
+				</div>
+
+			</div> <!-- end of wraper -->
+    </body>
+</html>

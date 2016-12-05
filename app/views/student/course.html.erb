@@ -1,0 +1,16 @@
+<!--the templete of this page is at app/views/layouts/student.html.erb-->
+
+<!--for development only, delete this block after finish this page-->
+<h3>現在位於 app/views/student/course.html.erb</h3>
+<p>完成本頁面後請把這段文字刪除！</p>
+<!--**************************************************************-->
+
+<!--list all announces-->
+<% @course.announces.each do |announce| %>
+    <!--the tag of the announce-->
+    <%= announce.tag %>
+    <!--the topic of the announce-->
+    <%= announce.topic %>
+    <!--the content of the announce-->
+    <%= announce.content %>
+<% end %>
