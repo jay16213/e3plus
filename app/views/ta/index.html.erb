@@ -16,5 +16,9 @@
         <%= announce.topic %>
         <!--the content of the announce-->
         <%= simple_format(announce.content) %>
+        <!--edit announce-->
+        <%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %>
+        <!--delete announce-->
+        <%= button_to '刪除公告', announce_path(announce), method: :delete, data: { confirm: "確定刪除此公告?" } %>
     <% end %>
 <% end %>

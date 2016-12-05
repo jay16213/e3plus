@@ -38,7 +38,7 @@ class AnnouncesController < ApplicationController
 
     def destroy
         @announce.destroy
-        redirect_to controller: 'ta', action: 'course'
+        redirect_to controller: 'ta', action: 'index'
     end
 
     private
@@ -55,4 +55,5 @@ class AnnouncesController < ApplicationController
     def announce_params
       params.require(:announce).permit(:course_id, :tag, :topic, :content)
     end
+
 end
