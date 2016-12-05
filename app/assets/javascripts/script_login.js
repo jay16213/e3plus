@@ -1,0 +1,1 @@
+/* This is a javscript file that will be included in application.html.erb */

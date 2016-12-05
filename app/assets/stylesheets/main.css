@@ -1,2 +1,9 @@
-/*= require_tree ./main_style */
+/* This is a manifest file included by main.html.erb 
+ * Add the stylesheet file you want to inclue as '=require fileName' below 
+ *
+ *
+ *= require style_main 
+ *
+ */
+
 
