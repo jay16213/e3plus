@@ -1,7 +1,6 @@
-
-<%= form_for @announce, :url => {action: 'create'} do |f| %>
+<%= simple_form_for @announce, :url => {action: 'create'} do |f| %>
     <!--include _announce_form.html.erb-->
     <%= render partial: 'form', locals: { f: f } %>
     
-    <%= f.submit "立即發佈" %>    
+    <%= f.button :submit, '立即發布', class: "btn btn-primary" %>    
 <% end %>

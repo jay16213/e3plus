@@ -1,6 +1,6 @@
-<%= form_for @announce, :url => {action: 'update', id: @announce } do |f| %>
+<%= simple_form_for @announce, :url => {action: 'update', id: @announce } do |f| %>
     <!--include _announce_form.html.erb-->
     <%= render partial: 'form', locals: { f: f } %>
     
-    <%= f.submit "修改公告" %>
+    <%= f.button :submit, '修改公告', class: "btn btn-primary" %>
 <% end %>

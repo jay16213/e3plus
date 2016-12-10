@@ -12,7 +12,7 @@
     <!--the topic of the announce-->
     <%= announce.topic %>
     <!--the content of the announce-->
-    <%= announce.content %>
+    <%= simple_format(announce.content) %>
     <!--edit announce-->
     <%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %>
     <!--delete announce-->

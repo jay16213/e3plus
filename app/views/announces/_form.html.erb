@@ -3,18 +3,31 @@
 <!--TO DO(if have time): draft & schedule-->
 
 <!--choose course-->
-<%= f.label :course, "課程" %>
-<%= f.select 'course_id', options_for_select(@courses.collect{ |c| [c.name, c.id] }) %>
+<div class="form-group">
+    <%= f.label :course, "課程" %>
+    <%= f.select 'course_id', options_for_select(@courses.collect{ |c| [c.name, c.id] }) %>
+</div>
+
 <!--choose tag-->
-<%= f.label :tag, "標籤" %>
-<%= f.select 'tag', options_for_select(['一般', '考試', '作業']) %>
+<div class="form-group">
+    <%= f.label :tag, "標籤" %>
+    <%= f.select 'tag', options_for_select(['一般', '考試', '作業']) %>
+</div>
 
 <!--input topic-->
-<%= f.label :topic, "標題" %>
-<%= f.text_field :topic %>
+<div class="form-group">
+    <%= f.label :topic, "標題" %>
+    <%= f.text_field :topic, class: "form-control" %>
+</div>
 
 <!--input content-->
-<%= f.label :content, "公告內容" %>
-<%= f.text_area :content %>
+<div class="form-group">
+    <%= f.label :content, "公告內容" %>
+    <%= f.text_area :content, class: "form-control", rows: "7" %>
+</div>
 
+<div class="form-group">
+    <%= f.label :content, "截止時間" %>
+    <%= f.date_field :deadline %>
+</div>
 <p style="color: red"><%= flash[:notice] %></p>
