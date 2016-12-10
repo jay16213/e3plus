@@ -20,8 +20,8 @@ class AnnouncesController < ApplicationController
         if @announce.save
             redirect_to controller: 'ta', action: 'index'
         else
-            flashp[:notice] = '所有欄位皆為必填！'
-            redirect_to action: new
+            flash[:notice] = '所有欄位皆為必填！'
+            redirect_to :new_announce
         end
     end
 
