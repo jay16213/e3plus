@@ -2,8 +2,9 @@
  * Add the stylesheet file you want to inclue as '=require fileName' below 
  *
  *
- *= require style_main 
  *
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 
