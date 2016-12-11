@@ -1,10 +1,10 @@
-/* This is a manifest file included by main.html.erb 
- * Add the stylesheet file you want to inclue as '=require fileName' below 
+/* This is a manifest file included by main.html.erb
+ * Add the stylesheet file you want to inclue as '=require fileName' below
  *
  *
  *
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-
+@import "sb-admin";
+@import "style_main";

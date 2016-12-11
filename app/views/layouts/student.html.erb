@@ -11,52 +11,47 @@
 		<%= csrf_meta_tags %>
     </head>
     <body>
-			<div id="wraper">
+			<div id="wrapper">
 
-				<div id="header">
-					<div id="logo"> <!--back home-->
-        		<%= link_to '回首頁', :student_index %>
-					</div>
-					<div id="nav">
-						<ul>
-        		<!--logout button-->
-        		<li><%= link_to '登出', :login_logout %></li>
-						<li><a href="#">行事曆</a></li>
-						<li><a href="#">作業清單</a></li>
-						</ul>
-					</div>
-				</div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-				<div id="content">
-					<div id="board">
-						<div id="board_nav">
-							<ul>
-								<li>標籤</li>
-								<li>課程</li>
-								<li>dead line</li>
-							</ul>
-						</div>
-						<div id="board_content">
-							<ul>
-        				<!--rails will replace yield with corresponding html files in app/views/main/-->
-								<li><%= yield %></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-        
-				<div id="sidebar">
-						<div id="sidebar_title">
-							<h3>課程</h3>
-						</div>
-        	<!--list all courses and their links-->
-        	<ul>
-        	    <% @courses.each do |course| %>
-        	    <li><%= link_to course.name, controller: 'student', action: 'course', id: course.id %></li>
-        	    <% end %>
-        	</ul>
-				</div>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <span class="navbar-brand"><%= link_to '回首頁', :student_index %></span>
+            </div>
 
-			</div> <!-- end of wraper -->
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to '登出', :login_logout %></li>
+              <li><a href="#">行事曆</a></li>
+              <li><a href="#">作業清單</a></li>
+            </ul>
+
+            <!-- Sidebar Menu Items - This collapse when window is small -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
+              <!--list all courses and their links-->
+              <ul class="nav side-nav">
+                <% @courses.each do |course| %>
+                <li><%= link_to course.name, controller: 'student', action: 'course', id: course.id %></li>
+                <% end %>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </nav>
+
+				<!-- page content -->
+				<div id="page-wrapper">
+          <div class="container-fluid">          
+                <%= yield %>
+          </div>
+				</div> <!-- page-wrapper -->
+
+			</div><!-- wraper -->
     </body>
 </html>
