@@ -5,7 +5,7 @@ class AnnouncesController < ApplicationController
     layout "ta", only: [ :new, :edit ]
 
     def index
-        @announces = Announce.find(User.find(session[:user_id]).courses.id).all
+        @announces = Announce.find(User.find(session[:user_id]).courses)
     end
 
     def show
