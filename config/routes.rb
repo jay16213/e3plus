@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 
   get 'student/index'
   get 'student/course'
+  post 'student/create_msg'
 
   get 'ta/index'
   get 'ta/course'
+  post 'ta/create_msg'
 
   #login page, the entrance of e3plus
   root to: 'login#login'

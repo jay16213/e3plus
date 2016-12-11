@@ -18,72 +18,70 @@
 	
 	<!-- page content -->
 	<div id="myTabContent" class="tab-content">
-
-		  <div class="tab-pane fade active in" id="home">
-				<div class="jumbotron content_block">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>標籤</th>
-								<th>課程</th>
-								<th>標題</th>
-								<th>發佈時間</th>
-								<th>dead line</th>
-							</tr>
-						</thead>
-						<tbody>
-  							<!--list all announces-->
- 							<%= render partial: 'announces/all', collection: @announces, as: :announce %>
-						</tbody>
-					</table>
-				</div>
+		<div class="tab-pane fade active in" id="home">
+			<div class="jumbotron content_block">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>標籤</th>
+							<th>課程</th>
+							<th>標題</th>
+							<th>發佈時間</th>
+							<th>dead line</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--list all announces-->
+						<%= render partial: 'announces/all', collection: @announces, as: :announce %>
+					</tbody>
+				</table>
 			</div>
+		</div>
 
-			<div class="tab-pane fade" id="assignment">
-				<div class="jumbotron content_block">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>標籤</th>
-								<th>課程</th>
-								<th>標題</th>
-								<th>發佈時間</th>
-								<th>dead line</th>
-							</tr>
-						</thead>
-						<tbody>
-  							<!--list all announces-->
- 							<%= render partial: 'announces/all', collection: @homeworks, as: :announce %>
-						</tbody>
-					</table>
-				</div>
+		<div class="tab-pane fade" id="assignment">
+			<div class="jumbotron content_block">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>標籤</th>
+							<th>課程</th>
+							<th>標題</th>
+							<th>發佈時間</th>
+							<th>dead line</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--list all announces-->
+						<%= render partial: 'announces/all', collection: @homeworks, as: :announce %>
+					</tbody>
+				</table>
 			</div>
+		</div>
 
-			<div class="tab-pane fade" id="exam">
-				<div class="jumbotron content_block">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>標籤</th>
-								<th>課程</th>
-								<th>標題</th>
-								<th>發佈時間</th>
-								<th>dead line</th>
-							</tr>
-						</thead>
-						<tbody>
-  							<!--list all announces-->
- 							<%= render partial: 'announces/all', collection: @exams, as: :announce %>
-						</tbody>
-					</table>
-				</div>
+		<div class="tab-pane fade" id="exam">
+			<div class="jumbotron content_block">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>標籤</th>
+							<th>課程</th>
+							<th>標題</th>
+							<th>發佈時間</th>
+							<th>dead line</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--list all announces-->
+						<%= render partial: 'announces/all', collection: @exams, as: :announce %>
+					</tbody>
+				</table>
 			</div>
+		</div>
 
-			<div class="tab-pane fade" id="course_material">
-				<div class="jumbotron content_block">
-					<h4>This is course material content</h4>
-				</div>
+		<div class="tab-pane fade" id="course_material">
+			<div class="jumbotron content_block">
+				<h4>This is course material content</h4>
 			</div>
-
+		</div>
 	</div>
 </div>
