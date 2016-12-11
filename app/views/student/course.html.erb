@@ -1,16 +1,35 @@
 <!--the templete of this page is at app/views/layouts/student.html.erb-->
+<div class="jumbotron">
 
-<!--for development only, delete this block after finish this page-->
-<h3>現在位於 app/views/student/course.html.erb</h3>
-<p>完成本頁面後請把這段文字刪除！</p>
-<!--**************************************************************-->
-
-<!--list all announces-->
-<% @course.announces.each do |announce| %>
-    <!--the tag of the announce-->
-    <%= announce.tag %>
-    <!--the topic of the announce-->
-    <%= announce.topic %>
-    <!--the content of the announce-->
-    <%= announce.content %>
-<% end %>
+	<!-- content nav -->
+	<ul class="nav nav-tabs">
+	  <li class="active"><a href="#home" data-toggle="tab" aria-expanded="false">公告</a></li>
+		<li class=""><a href="#assignment" data-toggle="tab" aria-expanded="true">作業</a></li>
+		<li class=""><a href="#exam" data-toggle="tab" aria-expanded="true">考試</a></li>
+		<li class=""><a href="#course_material" data-toggle="tab" aria-expanded="true">教材</a></li>
+	</ul>
+	
+	<!-- page content -->
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane fade active in" id="home">
+  			<!--list all announces-->
+  			<% @course.announces.each do |announce| %>
+  			    <!--the tag of the announce-->
+  			    <%= announce.tag %>
+  			    <!--the topic of the announce-->
+  			    <%= announce.topic %>
+  			    <!--the content of the announce-->
+  			    <%= announce.content %>
+  			  <% end %>
+			</div>
+			<div class="tab-pane fade" id="assignment">
+				<h4>This is assignment content</h4>
+			</div>
+			<div class="tab-pane fade" id="exam">
+				<h4>This is exam content</h4>
+			</div>
+			<div class="tab-pane fade" id="course_material">
+				<h4>This is course material content</h4>
+			</div>
+	</div>
+</div>
