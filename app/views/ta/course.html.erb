@@ -1,20 +1,55 @@
 <!--the templete of this page is at app/views/layouts/ta.html.erb-->
+<div class="container-fluid">
 
-<!--for development only, delete this block after finish this page-->
-<h3>現在位於 app/views/ta/course.html.erb</h3>
-<p>完成本頁面後請把這段文字刪除！</p>
-<!--**************************************************************-->
+	<!-- page header -->	
+	<div class="row">
+ 		<div class="col-lg-12">
+			<h2 class="page-header"><%= @course.name %></h2>
+		</div>
+	</div>
 
-<!--list all announces-->
-<% @course.announces.each do |announce| %>
-    <!--the tag of the announce-->
-    <%= announce.tag %>
-    <!--the topic of the announce-->
-    <%= announce.topic %>
-    <!--the content of the announce-->
-    <%= simple_format(announce.content) %>
-    <!--edit announce-->
-    <%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %>
-    <!--delete announce-->
-    <%= button_to '刪除公告', announce_path(announce), method: :delete, data: { confirm: "確定刪除此公告?" } %>
-<% end %>
+	<!-- content nav -->
+	<ul class="nav nav-tabs">
+	  <li class="active"><a href="#home" data-toggle="tab" aria-expanded="false">公告</a></li>
+		<li class=""><a href="#assignment" data-toggle="tab" aria-expanded="true">作業</a></li>
+		<li class=""><a href="#exam" data-toggle="tab" aria-expanded="true">考試</a></li>
+		<li class=""><a href="#course_material" data-toggle="tab" aria-expanded="true">教材</a></li>
+	</ul>
+	
+	<!-- page content -->
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane fade active in" id="home">
+				<div class="jumbotron content_block">
+					<!--list all announces-->
+					<% @course.announces.each do |announce| %>
+					    <!--the tag of the announce-->
+					    <%= announce.tag %>
+					    <!--the topic of the announce-->
+					    <%= announce.topic %>
+					    <!--the content of the announce-->
+					    <%= simple_format(announce.content) %>
+					    <!--edit announce-->
+					    <%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %>
+					    <!--delete announce-->
+					    <%= button_to '刪除公告', announce_path(announce), method: :delete, data: { confirm: "確定刪除此公告?" } %>
+					<% end %>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="assignment">
+				<div class="jumbotron content_block">
+					<h4>This is assignment content</h4>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="exam">
+				<div class="jumbotron content_block">
+					<h4>This is exam content</h4>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="course_material">
+				<div class="jumbotron content_block">
+					<h4>This is course material content</h4>
+				</div>
+			</div>
+	</div>
+</div>
+
