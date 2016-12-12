@@ -3,6 +3,9 @@ class StudentController < AnnouncesController
     before_action :set_card
     #create a new empty message object
     before_action :new_msg, only: [ :index, :course ]
+    
+    #TO DO: hierarchy message system(if have time)
+
     def index
         #tag_id == 1 => general
         #tag_id == 2 => exam, tag_id == 3 => homeworkx
@@ -22,17 +25,11 @@ class StudentController < AnnouncesController
         #homework announce
         @homeworks = Announce.where(course_id: @course, tag_id: 3).order("created_at desc")
     end
-
-    def create_msg#left message to the announce
-        @message = Message.new(message_params)
-
-        if @message.save
-            redirect_to(:back)#redirect to current page
-        else
-            flash[:notice] = "系統錯誤，請稍後再試！"
-        end
-    end
     
+    def edit_msg
+        @message = Message.find(params[:id])
+    end
+
     private
 
     def set_user_info
@@ -47,9 +44,5 @@ class StudentController < AnnouncesController
 
     def new_msg
         @message = Message.new
-    end
-
-    def message_params
-        params.require(:message).permit(:user_id, :announce_id, :msg)
     end
 end

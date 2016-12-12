@@ -8,14 +8,15 @@ Rails.application.routes.draw do
   get 'login/logout'
 
   resources :announces
+  resources :messages, only: [ :create, :update, :destroy ]
 
   get 'student/index'
   get 'student/course'
-  post 'student/create_msg'
-
+  get 'student/:id/edit_msg' => 'student#edit_msg', as: :student_edit_msg
+  
   get 'ta/index'
   get 'ta/course'
-  post 'ta/create_msg'
+  get 'ta/:id/edit_msg' => 'ta#edit_msg', as: :ta_edit_msg
 
   #login page, the entrance of e3plus
   root to: 'login#login'
