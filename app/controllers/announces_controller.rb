@@ -53,7 +53,7 @@ class AnnouncesController < ApplicationController
 
     #data validation
     def announce_params
-      params.require(:announce).permit(:course_id, :tag, :topic, :content)
+      params.require(:announce).permit(:course_id, :tag, :topic, :content, :deadline)
     end
 
 end
