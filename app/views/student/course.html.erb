@@ -36,10 +36,10 @@
  							<% @course.announces.each do |announce| %>
 									<tr>
 										<td><%= announce.tag %></td> <!--the tag of the announce-->
-										<td></td> <!-- the course name of the announce -->
+										<td><%= announce.course.name %></td> <!-- the course name of the announce -->
 										<td><%= announce.topic %></td> <!--the topic of the announce-->
 										<td></td> <!-- the announce time -->
-										<td></td> <!-- the deadline -->
+										<td><%= announce.deadline %></td> <!-- the deadline -->
 									</tr>
   						  <% end %>
 						</tbody>
