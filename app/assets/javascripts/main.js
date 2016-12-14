@@ -14,4 +14,4 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require script_main 
+//= require student

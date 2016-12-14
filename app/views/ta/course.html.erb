@@ -35,7 +35,7 @@
 								<% @course.announces.each do |announce| %>
 									<tr>
 										<!--the tag of the announce-->
-										<td><%= announce.tag %></td> 
+										<td><%= announce.tag.name %></td> 
 										<!-- the course name of the announce -->
 										<td><%= announce.course.name %></td> 
 										<!--the topic of the announce-->
