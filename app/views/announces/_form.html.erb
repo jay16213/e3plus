@@ -5,13 +5,13 @@
 <!--choose course-->
 <div class="form-group">
     <%= f.label :course, "課程" %>
-    <%= f.select 'course_id', options_for_select(@courses.collect{ |c| [c.name, c.id] }) %>
+    <%= f.collection_select(:course_id, @courses, :id, :name, {include_blank: true} ) %>
 </div>
 
 <!--choose tag-->
 <div class="form-group">
     <%= f.label :tag, "標籤" %>
-    <%= f.select 'tag', options_for_select(['一般', '考試', '作業']) %>
+    <%= f.collection_select(:tag_id, Tag.all, :id, :name ) %>
 </div>
 
 <!--input topic-->
