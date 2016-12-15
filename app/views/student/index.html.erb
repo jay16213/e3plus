@@ -25,7 +25,7 @@
 	  				<% @courses.each do |course| %>
 	  				  <% course.announces.each do |announce| %>
 	  				    <!--the tag of the announce-->
-	  				    <%= announce.tag %>
+	  				    <%= announce.tag.name %>
 	  				    <!--the topic of the announce-->
 	  				    <%= announce.topic %>
 	  				    <!--the content of the announce-->
