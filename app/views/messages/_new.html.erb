@@ -1,0 +1,11 @@
+<%= simple_form_for @message, url: messages_path do |f| %>
+    <!--hidden field won't show up so needn't add any html tags-->
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :announce_id, value: announce.id %>
+    <!--******************************************-->
+    <!--input content-->
+    <%= f.label :msg, "留言", class: "sr-only" %>
+    <%= f.text_area :msg, class: "form-control", rows: "1" %>
+    <%= f.submit "留言", class: "btn btn-info" %>
+    <!---->
+<% end %>

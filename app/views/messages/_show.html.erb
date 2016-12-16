@@ -1,0 +1,8 @@
+<% announce.messages.each do |message| %>
+    <%= message.user.name %>
+    <%= simple_format(message.msg) %>
+	<%= message.updated_at.strftime("%y %b %d") %>
+	<% if message.user_id == @user.id %>
+        <%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
+	<% end %>     
+<% end %>
