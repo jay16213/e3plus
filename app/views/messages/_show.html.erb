@@ -1,8 +1,35 @@
 <% announce.messages.each do |message| %>
-    <%= message.user.name %>
-    <%= simple_format(message.msg) %>
-	<%= message.updated_at.strftime("%y %b %d") %>
+    <!--if message_id has a value, then this message if a reply-->
+    <% if message.message_id == nil %>
+        <%= message.user.name %>
+        <%= simple_format(message.content) %>
+	    <%= message.updated_at.strftime("%y %b %d") %>
+    <% end %>
+
+    <!-- show replies for this message -->
+    <% message.replies.each do |reply| %>
+        <%= reply.user.name %>
+        <%= simple_format(reply.content) %>
+	    <%= reply.updated_at.strftime("%y %b %d") %>
+        <% if reply.user_id == @user.id %>
+            <%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
+	    <% end %>
+    <% end %>
+
+    <!-- reply for this message -->
+    <%= simple_form_for @message, url: messages_path do |f| %>
+        <!--hidden field won't show up so needn't add any html tags-->
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :announce_id, value: announce.id %>
+        <%= f.hidden_field :message_id, value: message.id %>
+
+        <!--input content-->
+        <%= f.label :content, "留言", class: "sr-only" %>
+        <%= f.text_area :content, class: "form-control", rows: "1" %>
+        <%= f.submit "回覆", class: "btn btn-info" %>
+    <% end %>
+
 	<% if message.user_id == @user.id %>
         <%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
-	<% end %>     
+	<% end %>
 <% end %>

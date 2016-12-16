@@ -4,8 +4,8 @@
     <%= f.hidden_field :announce_id, value: announce.id %>
     <!--******************************************-->
     <!--input content-->
-    <%= f.label :msg, "留言", class: "sr-only" %>
-    <%= f.text_area :msg, class: "form-control", rows: "1" %>
+    <%= f.label :content, "留言", class: "sr-only" %>
+    <%= f.text_area :content, class: "form-control", rows: "1" %>
     <%= f.submit "留言", class: "btn btn-info" %>
     <!---->
 <% end %>
