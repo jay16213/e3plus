@@ -14,4 +14,9 @@ class StudentController < AnnouncesController
         @user = User.find(session[:user_id])
         @courses = @user.courses.all
     end
+
+    def calendar
+        @user = User.find(session[:user_id])
+        @courses = @user.courses.all
+    end
 end

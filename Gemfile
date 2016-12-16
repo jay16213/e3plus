@@ -30,6 +30,8 @@ gem 'therubyracer'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem "simple_calendar", "~> 2.0"
+
 gem 'simple_form'
 # Use Unicorn as the app server
 # gem 'unicorn'

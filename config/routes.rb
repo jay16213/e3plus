@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'student/index'
   get 'student/course'
+  get 'student/calendar'
 
   get 'ta/index'
   get 'ta/course'

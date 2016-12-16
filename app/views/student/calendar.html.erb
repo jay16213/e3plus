@@ -1,0 +1,13 @@
+
+
+</br> </br>
+<%= month_calendar do |date| %>
+  <%= date %>
+        	<% @courses.each do |course| %>
+	  				  <% course.announces.each do |announce| %>
+                          <%if announce.deadline.to_s.first(10)==date.to_s%>
+	  				        <%= announce.topic %>
+                          <%end%>
+	  				  <% end %>
+            <% end %>
+<% end %>
