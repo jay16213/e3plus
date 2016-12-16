@@ -29,19 +29,18 @@ ActiveRecord::Schema.define(version: 20161215170515) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< d4d8151df5f8e4afa8a653b18b5f085f212dd218
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
   create_table "messages", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "announce_id"
     t.text     "msg"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
->>>>>>> message system
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_courseships", force: :cascade do |t|
