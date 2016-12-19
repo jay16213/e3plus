@@ -5,15 +5,15 @@
             <td>課程</td>
             <td>作業</td>
             <td>截止時間</td>
+            <td>狀態</td>
         </tr>
         <tr>
         <% @hw.each do |hw| %>
-            <% if hw.handed_in == false %>
-                <td><%= hw.course.name %></td>
-                <td><%= hw.topic %></td>
-                <td><%= hw.deadline %></td>
-                <td><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
-            <% end %>
+            <td><%= hw.course.name %></td>
+            <td><%= hw.topic %></td>
+            <td><%= hw.deadline %></td>
+            <td><%=(hw.handed_in) ? '已繳交' : '未繳交' %></td>
+            <td><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
         <% end %>
         </tr>
     </table>

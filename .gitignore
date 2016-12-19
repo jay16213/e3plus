@@ -6,6 +6,7 @@
 
 *.rbc
 *.sqlite3
+public/hws/
 capybara-*.html
 .rspec
 /log

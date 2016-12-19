@@ -1,4 +1,5 @@
 class Homework < ActiveRecord::Base
+    
     #a course may has hws
     belongs_to :course
 

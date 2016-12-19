@@ -18,6 +18,17 @@ class AnnouncesController < ApplicationController
     def create
         @announce = Announce.new(announce_params)
         if @announce.save
+            #new hw
+            if @announce.tag_id == 3#it is an hw announce
+                @announce.course.users.each do |user|
+                    if user.identity == "student"
+                        hw = Homework.new( course: @announce.course, topic: @announce.topic, description: @announce.content, deadline: @announce.deadline, user: user)
+                        hw.handed_in = false
+                        hw.save
+                    end
+                end
+            end
+
             redirect_to controller: 'ta', action: 'index'
         else
             flash[:notice] = '所有欄位皆為必填！'

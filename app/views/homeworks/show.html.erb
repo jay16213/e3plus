@@ -2,7 +2,9 @@
 <%= @hw.course.name %>
 <%= @hw.topic %>
 <%= @hw.deadline %>
-<%= simple_form_for @hw, url: {action: :upload, id: @hw.id } do |f| %>
+<%= simple_form_for @hw, url: homework_path(@hw), method: :patch do |f| %>
     <%= f.file_field :file %>
     <%= f.button :submit, '上傳作業', class: "btn btn-danger" %>
 <% end %>
+
+<p><%= flash[:notice] %></p>
