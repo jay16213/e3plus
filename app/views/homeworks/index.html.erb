@@ -7,15 +7,28 @@
             <td>截止時間</td>
             <td>狀態</td>
         </tr>
-        <tr>
-        <% @hw.each do |hw| %>
-            <td><%= hw.course.name %></td>
-            <td><%= hw.topic %></td>
-            <td><%= hw.deadline %></td>
-            <td><%=(hw.handed_in) ? '已繳交' : '未繳交' %></td>
-            <td><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+        <% @not_finished_hw.each do |hw| %>
+            <tr>
+                <td><%= hw.course.name %></td>
+                <td><%= hw.topic %></td>
+                <td><%= hw.deadline.to_formatted_s(:short) %></td>
+                <td><%= '未繳交' %></td>
+                <% if hw.deadline > Time.now.to_datetime %>
+                    <td><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+                <% else %>
+                    <td>已過截止時間</td>
+                <% end %>
+            </tr>
         <% end %>
-        </tr>
+        <% @finished_hw.each do |hw| %>
+            <tr>
+                <td><%= hw.course.name %></td>
+                <td><%= hw.topic %></td>
+                <td><%= hw.deadline.to_formatted_s(:short) %></td>
+                <td><%= '已繳交' %></td>
+                <td><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+            </tr>
+        <% end %>
     </table>
     <p><%= flash[:notice] %></p>
 </div>

@@ -5,7 +5,8 @@ class HomeworksController < ApplicationController
     layout :determine
 
     def index
-        @hw = @user.homeworks.all
+        @not_finished_hw = Homework.where(user_id: @user.id, handed_in: false).order("deadline")
+        @finished_hw = Homework.where(user_id: @user.id, handed_in: true).order("deadline")
     end
 
     def show
