@@ -32,16 +32,8 @@
 							</tr>
 						</thead>
 						<tbody>
-  						<!--list all announces-->
- 							<% @course.announces.each do |announce| %>
-									<tr>
-										<td><%= announce.tag.name %></td> <!--the tag of the announce-->
-										<td><%= announce.course.name %></td> <!-- the course name of the announce -->
-										<td><%= announce.topic %></td> <!--the topic of the announce-->
-										<td></td> <!-- the announce time -->
-										<td><%= announce.deadline %></td> <!-- the deadline -->
-									</tr>
-  						  <% end %>
+  							<!--list all announces-->
+ 							<%= render partial: 'announces/all', collection: @announces, as: :announce %>
 						</tbody>
 					</table>
 				</div>
@@ -49,13 +41,41 @@
 
 			<div class="tab-pane fade" id="assignment">
 				<div class="jumbotron content_block">
-					<h4>This is assignment content</h4>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>標籤</th>
+								<th>課程</th>
+								<th>標題</th>
+								<th>發佈時間</th>
+								<th>dead line</th>
+							</tr>
+						</thead>
+						<tbody>
+  							<!--list all announces-->
+ 							<%= render partial: 'announces/all', collection: @homeworks, as: :announce %>
+						</tbody>
+					</table>
 				</div>
 			</div>
 
 			<div class="tab-pane fade" id="exam">
 				<div class="jumbotron content_block">
-					<h4>This is exam content</h4>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>標籤</th>
+								<th>課程</th>
+								<th>標題</th>
+								<th>發佈時間</th>
+								<th>dead line</th>
+							</tr>
+						</thead>
+						<tbody>
+  							<!--list all announces-->
+ 							<%= render partial: 'announces/all', collection: @exams, as: :announce %>
+						</tbody>
+					</table>
 				</div>
 			</div>
 

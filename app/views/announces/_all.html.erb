@@ -1,0 +1,14 @@
+<tr>
+    <td><%= announce.tag.name %></td>
+    <td><%= announce.course.name %></td>
+    <td><%= link_to announce.topic, announce_path(announce) %></td>
+    <td><%= announce.created_at.strftime("%y %m %d") %></td>
+    <td><%= announce.deadline %></td>
+
+    <!--func for ta-->
+    <% if @user.identity == 'ta' %>
+        <!-- to-do add icon -->
+        <td><%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %></td>
+        <td><%= button_to "刪除公告", announce_path(announce), method: :delete, data: { confirm: "確定刪除此公告?" }, class: "btn btn-danger" %></td>
+    <% end %>
+</tr>

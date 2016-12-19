@@ -1,14 +1,14 @@
 class AnnouncesController < ApplicationController
     before_action :set_announce, only: [ :show, :edit, :update, :destroy ]
-    before_action :set_courses, only: [ :new, :create, :edit, :update ]
+    before_action :set_courses, only: [ :new, :create, :show, :edit, :update ]
     
-    layout "ta", only: [ :new, :edit ]
+    layout :determine
 
     def index
-        @announces = Announce.find(User.find(session[:user_id]).courses)
     end
 
     def show
+        @cards = Announce.where(course_id: @courses, tag_id: [2,3]).order("deadline")
     end
 
     def new
@@ -54,6 +54,10 @@ class AnnouncesController < ApplicationController
     #data validation
     def announce_params
       params.require(:announce).permit(:course_id, :tag_id, :topic, :content, :deadline)
+    end
+
+    def determine
+        (User.find(session[:user_id]).identity == "student") ? 'student' : 'ta'
     end
 
 end
