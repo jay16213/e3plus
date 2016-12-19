@@ -4,4 +4,11 @@
 <%= @announce.created_at %><!--create time-->
 <%= @announce.deadline %>
 
+<!--file path: messages/_show.html.erb-->
+<!--show messages & replies-->
+<%= render partial: 'messages/show', locals: { announce: @announce } %>
+<!--file path: messages/_new.html.erb-->
+<!-- leave a new message -->
+<%= render partial: 'messages/new', locals: { announce: @announce } %>
+
 

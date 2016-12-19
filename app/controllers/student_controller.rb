@@ -1,8 +1,6 @@
 class StudentController < AnnouncesController
     before_action :set_user_info
     before_action :set_card
-    #create a new empty message object
-    before_action :new_msg, only: [ :index, :course ]
     
     #TO DO: hierarchy message system(if have time)
 
@@ -26,10 +24,6 @@ class StudentController < AnnouncesController
         @homeworks = Announce.where(course_id: @course, tag_id: 3).order("created_at desc")
     end
     
-    def edit_msg
-        @message = Message.find(params[:id])
-    end
-
     private
 
     def set_user_info
@@ -40,9 +34,5 @@ class StudentController < AnnouncesController
 
     def set_card
         @cards = Announce.where(course_id: @courses, tag_id: [2,3]).order("deadline")
-    end
-
-    def new_msg
-        @message = Message.new
     end
 end

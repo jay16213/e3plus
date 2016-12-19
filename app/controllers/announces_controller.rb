@@ -8,11 +8,17 @@ class AnnouncesController < ApplicationController
     end
 
     def show
+        @user = User.find(session[:user_id])
         @cards = Announce.where(course_id: @courses, tag_id: [2,3]).order("deadline")
+        @message = Message.new
     end
 
     def new
         @announce = Announce.new
+    end
+
+    def edit_msg
+        @message = Message.find(params[:id])
     end
 
     def create
