@@ -13,5 +13,6 @@ class TaController < AnnouncesController
     def set_user_info
         @user = User.find(session[:user_id])
         @courses = @user.courses.all
+        @announces = Announce.where(course_id: @courses).order("created_at desc")
     end
 end
