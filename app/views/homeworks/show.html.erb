@@ -1,0 +1,8 @@
+<br>
+<%= @hw.course.name %>
+<%= @hw.topic %>
+<%= @hw.deadline %>
+<%= simple_form_for @hw, url: {action: :upload, id: @hw.id } do |f| %>
+    <%= f.file_field :file %>
+    <%= f.button :submit, '上傳作業', class: "btn btn-danger" %>
+<% end %>
