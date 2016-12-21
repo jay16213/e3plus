@@ -40,13 +40,6 @@
                 <% @courses.each do |course| %>
                 <li><%= link_to course.name, controller: 'student', action: 'course', id: course.id %></li>
                 <% end %>
-
-                <!--info card-->
-                <% @cards.each do |card| %>
-                  <li><%= card.topic %></li>
-                  <li><%= card.deadline.strftime("%y %m %d %H %M %S") %></li>
-                <% end %>
-                <!---->
               </ul>
 
             </div><!-- /.navbar-collapse -->
