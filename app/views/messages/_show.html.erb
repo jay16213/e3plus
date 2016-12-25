@@ -1,9 +1,13 @@
 <% announce.messages.each do |message| %>
-    <!--if message_id has a value, then this message if a reply-->
+    <!--if message_id has a value, then this message is a reply-->
     <% if message.message_id == nil %>
         <%= message.user.name %>
         <%= simple_format(message.content) %>
 	    <%= message.updated_at.strftime("%y %b %d") %>
+        
+        <% if message.user_id == @user.id %>
+            <%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
+	    <% end %>
     <% end %>
 
     <!-- show replies for this message -->
@@ -29,7 +33,4 @@
         <%= f.submit "回覆", class: "btn btn-info" %>
     <% end %>
 
-	<% if message.user_id == @user.id %>
-        <%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
-	<% end %>
 <% end %>
