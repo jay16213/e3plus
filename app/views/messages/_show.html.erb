@@ -16,21 +16,23 @@
         <%= simple_format(reply.content) %>
 	    <%= reply.updated_at.strftime("%y %b %d") %>
         <% if reply.user_id == @user.id %>
-            <%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
+            <%= button_to "刪除", message_path(reply), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger" %>
 	    <% end %>
     <% end %>
 
     <!-- reply for this message -->
-    <%= simple_form_for @message, url: messages_path do |f| %>
-        <!--hidden field won't show up so needn't add any html tags-->
-        <%= f.hidden_field :user_id, value: @user.id %>
-        <%= f.hidden_field :announce_id, value: announce.id %>
-        <%= f.hidden_field :message_id, value: message.id %>
+    <% if message.message_id == nil %>
+        <%= simple_form_for @message, url: messages_path do |f| %>
+            <!--hidden field won't show up so needn't add any html tags-->
+            <%= f.hidden_field :user_id, value: @user.id %>
+            <%= f.hidden_field :announce_id, value: announce.id %>
+            <%= f.hidden_field :message_id, value: message.id %>
 
-        <!--input content-->
-        <%= f.label :content, "留言", class: "sr-only" %>
-        <%= f.text_area :content, class: "form-control", rows: "1" %>
-        <%= f.submit "回覆", class: "btn btn-info" %>
+            <!--input content-->
+            <%= f.label :content, "留言", class: "sr-only" %>
+            <%= f.text_area :content, class: "form-control", rows: "1" %>
+            <%= f.submit "回覆", class: "btn btn-info" %>
+        <% end %>
     <% end %>
 
 <% end %>
