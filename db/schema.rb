@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217165355) do
+ActiveRecord::Schema.define(version: 20161230033511) do
 
   create_table "announces", force: :cascade do |t|
     t.integer  "tag_id"
@@ -37,17 +37,9 @@ ActiveRecord::Schema.define(version: 20161217165355) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.datetime "deadline"
-    t.boolean  "handed_in"
+    t.integer  "status"
     t.string   "file"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "announce_id"
-    t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "message_id"
   end
 
   create_table "tags", force: :cascade do |t|

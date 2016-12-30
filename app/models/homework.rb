@@ -8,4 +8,6 @@ class Homework < ActiveRecord::Base
 
     #upload hw files
     mount_uploader :file, HomeworkUploader
+
+    belongs_to :announce
 end
