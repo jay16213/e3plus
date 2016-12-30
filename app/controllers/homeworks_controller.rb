@@ -11,7 +11,7 @@ class HomeworksController < ApplicationController
         @finisheds = Homework.where(user_id: @user.id, status: 0).order("deadline")
         #update status
         @not_finisheds.each do |hw|
-            diff = hw.deadline- Time.now.to_datetime #in seconds
+            diff = hw.deadline - Time.now.to_datetime #in seconds
             if diff < 0 # out of time
                 hw.status = 4
             elsif diff < 86400 #less then 1 day
@@ -22,7 +22,7 @@ class HomeworksController < ApplicationController
                 hw.status = 1
             end
             hw.save
-        end 
+        end
     end
 
     def show

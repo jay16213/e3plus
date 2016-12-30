@@ -1,8 +1,8 @@
 <br>
-<%= @hw.course.name %>
-<%= @hw.topic %>
-<%= @hw.deadline %>
-<%= simple_format(@hw.description) %>
+<%= @hw.announce.course.name %>
+<%= @hw.announce.topic %>
+<%= @hw.announce.deadline.to_formatted_s(:short) %>
+<%= simple_format(@hw.announce.content) %>
 <%= simple_form_for @hw, url: homework_path(@hw), method: :patch do |f| %>
     <%= f.file_field :file %>
     <%= f.button :submit, '上傳作業', class: "btn btn-danger" %>
