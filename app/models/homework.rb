@@ -10,4 +10,5 @@ class Homework < ActiveRecord::Base
     mount_uploader :file, HomeworkUploader
 
     belongs_to :announce
+
 end
