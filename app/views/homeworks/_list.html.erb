@@ -1,0 +1,31 @@
+<table class="table table-hover">
+    <tr>
+        <th>課程</th>
+        <th>作業</th>
+        <th>截止時間</th>
+        <th>狀態</th>
+        <th>繳交</th>
+    </tr>
+    <% homeworks.each do |hw| %>
+        <tr>
+            <td width="20%"><%= hw.course.name %></td>
+            <td width="30%"><%= hw.topic %></td>
+            <td width="15%"><%= hw.deadline.to_formatted_s(:short) %></td>
+            <!--status == 0: finished, 1~3: not yet-->
+            <td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+            <% case hw.status %>
+                <% when 0 %>
+                    <td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+                
+                <% when 1 %><!-- safe -->
+                    <td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+                
+                <% when 2 %><!-- warnning -->
+                    <td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+                
+                <% when 3 %><!-- danger -->
+                    <td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+            <% end %>
+        </tr>
+    <% end %>
+</table>

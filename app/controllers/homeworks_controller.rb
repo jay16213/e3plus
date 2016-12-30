@@ -7,9 +7,10 @@ class HomeworksController < ApplicationController
     #hw.status: 0 => handed_in, 1~3 => not yet, 4 => out of time
     #1 => safe, 2 => warnning, 3 => danger
     def index
-        @homeworks = Homework.where(user_id: @user.id).order("deadline")
+        @not_finisheds = Homework.where(user_id: @user.id, status: [1, 2, 3]).order("deadline")
+        @finisheds = Homework.where(user_id: @user.id, status: 0).order("deadline")
         #update status
-        @homeworks.each do |hw|
+        @not_finisheds.each do |hw|
             diff = hw.deadline- Time.now.to_datetime #in seconds
             if diff < 0 # out of time
                 hw.status = 4
