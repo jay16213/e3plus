@@ -14,14 +14,13 @@
     </div>
   </div>
 
-  <div class="well">
-    <!--file path: homeworks/_list.html.erb-->
-    <!--hasn't finished hw-->
-    <%= render partial: 'homeworks/list', locals: { homeworks: @not_finisheds } %>
-    <p><%= flash[:notice] %></p>
-  </div>
+  <!--file path: homeworks/_list.html.erb-->
+  <!--hasn't finished hw-->
+  <%= render partial: 'homeworks/list', locals: { homeworks: @not_finisheds } %>
+  <p><%= flash[:notice] %></p>
 </div>
 
+<br>
 <!-- hw finished -->
 <div class="container-fluid">
   <div class="row">
@@ -30,9 +29,7 @@
     </div>
   </div>
 
-  <div class="well">
-    <!--finished hw-->
-    <%= render partial: 'homeworks/list', locals: { homeworks: @finisheds } %>
-     <p><%= flash[:notice] %></p>
-  </div>
+  <!--finished hw-->
+  <%= render partial: 'homeworks/list', locals: { homeworks: @finisheds } %>
+  <p><%= flash[:notice] %></p>
 </div>

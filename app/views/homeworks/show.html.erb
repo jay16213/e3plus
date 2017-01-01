@@ -6,11 +6,13 @@
 		</div>
 	</div>
 	<div class="jumbotron">
-		<h4>課名： <%= @hw.course.name %></h4>
-		<h4>標題： <%= @hw.topic %></h4>
-		<h4><%= @hw.announce.deadline.to_formatted_s(:short) %></h4>
-		<h4><%= simple_format(@hw.announce.content) %></h4>
-		
+		<h4>課名： <%= @hw.announce.course.name %></h4>
+		<h4>標題： <%= @hw.announce.topic %></h4>
+		<h4>deadline： <%= @hw.announce.deadline.to_formatted_s(:short) %></h4>
+		<br>
+		<h4>內容： <br>
+			<%= simple_format(@hw.announce.content) %>
+		</h4>
 		<br>
 		<h4>
 		<%= simple_form_for @hw, url: homework_path(@hw), method: :patch do |f| %>
@@ -19,7 +21,5 @@
 		  <%= f.button :submit, '上傳作業', class: "btn btn-danger" %>
 		<% end %>
 		</h4>
-		
-		<p><%= flash[:notice] %></p>
 	</div>
 </div>
