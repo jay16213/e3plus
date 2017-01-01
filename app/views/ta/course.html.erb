@@ -13,38 +13,30 @@
 	  <li class="active"><a href="#home" data-toggle="tab" aria-expanded="false">公告</a></li>
 		<li class=""><a href="#assignment" data-toggle="tab" aria-expanded="true">作業</a></li>
 		<li class=""><a href="#exam" data-toggle="tab" aria-expanded="true">考試</a></li>
-		<li class=""><a href="#course_material" data-toggle="tab" aria-expanded="true">教材</a></li>
 	</ul>
 	
 	<!-- page content -->
 	<div id="myTabContent" class="tab-content">
 		<div class="tab-pane fade active in" id="home">
-			<div class="jumbotron content_block">
+			<div class="jumbotron content_block" style="overflow: scroll;">
 				<!--list all announces-->
 				<%= render partial: 'announces/all', locals: { announces: @announces } %>
 			</div>
 		</div>
 
 		<div class="tab-pane fade" id="assignment">
-			<div class="jumbotron content_block">
+			<div class="jumbotron content_block" style="overflow: scroll;">
 				<!--list announces with homework tag-->
 				<%= render partial: 'announces/all', locals: { announces: @homeworks } %>
 			</div>
 		</div>
 
 		<div class="tab-pane fade" id="exam">
-			<div class="jumbotron content_block">
+			<div class="jumbotron content_block" style="overflow: scroll;">
 				<!--list announces with exam tag-->
 				<%= render partial: 'announces/all', locals: { announces: @exams } %>
 			</div>
 		</div>
-
-		<div class="tab-pane fade" id="course_material">
-			<div class="jumbotron content_block">
-				<h4>This is course material content</h4>
-			</div>
-		</div>
-
 	</div>
 </div>
 
