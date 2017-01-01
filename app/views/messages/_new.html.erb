@@ -10,7 +10,10 @@
     <!--******************************************-->
     <!--input content-->
     <%= f.label :content, "留言", class: "sr-only" %>
-    <%= f.text_area :content, class: "form-control", rows: "1" %>
-    <%= f.submit "留言", class: "btn btn-info" %>
+		<div style="width: 90%;">
+    	<%= f.text_area :content, class: "form-control", rows: "1" %>
+		</div>
+   	<%= f.submit "留言", class: "btn btn-info" %>
     <!---->
 <% end %>
+<br>
