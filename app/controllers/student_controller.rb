@@ -1,6 +1,8 @@
 class StudentController < AnnouncesController
     before_action :set_user_info
     before_action :set_card
+    
+    #TO DO: hierarchy message system(if have time)
 
     def index
         #tag_id == 1 => general
@@ -21,7 +23,7 @@ class StudentController < AnnouncesController
         #homework announce
         @homeworks = Announce.where(course_id: @course, tag_id: 3).order("created_at desc")
     end
-
+    
     private
 
     def set_user_info

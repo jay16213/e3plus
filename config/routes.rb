@@ -8,12 +8,15 @@ Rails.application.routes.draw do
   get 'login/logout'
 
   resources :announces
+  resources :messages, only: [ :create, :update, :destroy ]
 
   get 'student/index'
   get 'student/course'
-
+  get 'student/:id/edit_msg' => 'student#edit_msg', as: :student_edit_msg
+  
   get 'ta/index'
   get 'ta/course'
+  get 'ta/:id/edit_msg' => 'ta#edit_msg', as: :ta_edit_msg
 
   get 'homeworks/index'
   get 'homeworks/:id' => 'homeworks#show', as: 'homework'

@@ -28,5 +28,4 @@ class TaController < AnnouncesController
         @courses = @user.courses.all
         @announces = Announce.where(course_id: @courses).order("created_at desc")
     end
-
 end

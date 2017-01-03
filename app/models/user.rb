@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 
     #one-to-many
     has_many :homeworks
+    has_many :messages
 end
