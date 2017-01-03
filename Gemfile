@@ -31,6 +31,10 @@ gem 'therubyracer'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'simple_form'
+
+#hw uploader
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

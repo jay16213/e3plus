@@ -1,0 +1,49 @@
+<table class="table table-hover">
+    <tr>
+        <th>課程</th>
+        <th>作業</th>
+        <th>截止時間</th>
+        <th>狀態</th>
+        <th>繳交</th>
+    </tr>
+    <% homeworks.each do |hw| %>
+     	<!--status == 0: finished, 1~3: not yet-->
+    	<% case hw.status %>
+      	<% when 0 %>
+        	<tr class>
+           	<td width="20%"><%= hw.announce.course.name %></td>
+           	<td width="30%"><%= hw.announce.topic %></td>
+           	<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
+           	<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           	<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+        	</tr>
+                
+       	<% when 1 %><!-- safe -->
+        	<tr class="success">
+           	<td width="20%"><%= hw.announce.course.name %></td>
+           	<td width="30%"><%= hw.announce.topic %></td>
+           	<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
+           	<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           	<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+					</tr>
+                
+       	<% when 2 %><!-- warnning -->
+					<tr class="warning">
+     		  	<td width="20%"><%= hw.announce.course.name %></td>
+           	<td width="30%"><%= hw.announce.topic %></td>
+           	<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
+           	<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           	<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+					</tr>
+                
+       	<% when 3 %><!-- danger -->
+					<tr class="danger">
+           	<td width="20%"><%= hw.announce.course.name %></td>
+           	<td width="30%"><%= hw.announce.topic %></td>
+           	<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
+           	<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           	<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
+					</tr>
+     	<% end %>
+    <% end %>
+</table>

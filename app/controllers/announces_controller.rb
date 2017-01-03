@@ -18,6 +18,11 @@ class AnnouncesController < ApplicationController
     def create
         @announce = Announce.new(announce_params)
         if @announce.save
+            #new hw
+            if @announce.tag_id == 3#it is an hw announce
+                add_new_hw(@announce)
+            end
+
             redirect_to controller: 'ta', action: 'index'
         else
             flash[:notice] = '所有欄位皆為必填！'
@@ -32,6 +37,7 @@ class AnnouncesController < ApplicationController
         if @announce.update(announce_params)
             redirect_to controller: 'ta', action: 'index'
         else
+            flash[:notice] = '所有欄位皆為必填！'
             redirect_to action: 'edit'
         end
     end
@@ -49,6 +55,16 @@ class AnnouncesController < ApplicationController
 
     def set_courses
         @courses = User.find(session[:user_id]).courses.all
+    end
+
+    def add_new_hw(announce)
+        announce.course.users.each do |user|
+            if user.identity == "student"
+                hw = Homework.new(announce_id: announce.id, user: user)
+                hw.status = 1
+                hw.save
+            end
+        end
     end
 
     #data validation

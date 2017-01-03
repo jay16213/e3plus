@@ -5,4 +5,7 @@ class Course < ActiveRecord::Base
 
     #one-to-many associations between course & announces
     has_many :announces
+
+    #one-to-many associations between course & homeworks
+    has_many :homeworks
 end

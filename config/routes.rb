@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   get 'ta/index'
   get 'ta/course'
 
+  get 'homeworks/index'
+  get 'homeworks/:id' => 'homeworks#show', as: 'homework'
+  patch 'homeworks/:id' => 'homeworks#upload'
+  put 'homeworks/:id' => 'homeworks#upload'
+
   #login page, the entrance of e3plus
   root to: 'login#login'
   # The priority is based upon order of creation: first created -> highest priority.
