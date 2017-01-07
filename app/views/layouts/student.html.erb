@@ -38,7 +38,7 @@
             <!-- Sidebar Menu Items - This collapse when window is small -->
             <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
               <!--list all courses and their links-->
-              <ul class="nav side-nav">
+              <ul class="nav side-nav self_side-nav">
                 <% @courses.each do |course| %>
                 <li><%= link_to course.name, controller: 'student', action: 'course', id: course.id %></li>
                 <% end %>
