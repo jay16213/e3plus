@@ -14,3 +14,9 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+var ready = function() {
+	$('[data-toggle="tooltip"]').tooltip();   
+};
+
+$(document).ready(ready);
+$(document).on('page:change', ready);
