@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  post 'login/login'
+  get 'login/logout'
+  get 'login/list_users'
+
   resource :users
-  root to: 'root#home'
+
+  #home page
+  root to: 'login#login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
