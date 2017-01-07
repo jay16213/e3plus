@@ -1,10 +1,11 @@
 <div class="container-fluid">
 	<!-- page header -->	
 	<div class="row">
- 		<div class="col-lg-12">
-			<h2 class="page-header">
+ 		<div class="col-lg-12 page-header">
+			<h2>
 				<%= @announce.topic %>
 			</h2>
+			<p><%= @announce.course.name %></p>
 		</div>
 	</div>
 	<div id="myTabContent" class="tab-content">
