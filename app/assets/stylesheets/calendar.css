@@ -1,10 +1,12 @@
 .simple-calendar {
   padding: 10px;
   margin: 10px;
+  font-size: 15px;
 }
 .calendar-heading {
   text-align: center;
   margin-bottom: 2px;
+  font-size: 20px;
 }
 
 .week {
@@ -24,7 +26,7 @@
 }
 
 .today {
-  background-color: #FFD1A4	;
+  background-color: #FFEEDD;
 }
 
 .start-date {}
@@ -35,13 +37,14 @@
 .next-month {
   color: #AAAAAA;
 }
-.current-month {}
+.current-month {
+  font-weight: bold;
+}
 
 .has-events {
-  color: #FF8000;
 }
 .day {
   }
 .event {
-  color: #AAAAAA;
+  color: #F75000;
 }
