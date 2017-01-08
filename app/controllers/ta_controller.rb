@@ -21,6 +21,9 @@ class TaController < AnnouncesController
         @homeworks = Announce.where(course_id: @course, tag_id: 3).order("created_at desc")
     end
 
+    def calendar
+    end
+    
     private
 
     def set_user_info

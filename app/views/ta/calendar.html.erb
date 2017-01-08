@@ -1,0 +1,11 @@
+
+
+</br> </br>
+<%= month_calendar do |date| %>
+  <%= date.strftime("%d") %>
+  <% @announces.each do |announce| %>
+    <%if announce.deadline.to_s.first(10) == date.to_s %>
+      <p class="event"><%= link_to announce.topic, announce_path(announce) %></p>
+    <% end %>
+  <% end %>
+<% end %>

@@ -6,6 +6,7 @@
 		<%= stylesheet_link_tag "main" %>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= stylesheet_link_tag 'ta', media: 'all', 'data-turbolinks-track' => true %>
+		<%= stylesheet_link_tag 'calendar.css' %>
 		<!-- add javascript at app/assets/javascript/script_main.js -->
 		<%= javascript_include_tag "main" %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -38,6 +39,10 @@
 								class: "glyphicon glyphicon-log-out",
 								data: {toggle: "tooltip", placement: "left", original_title: "登出"}%>
 							</li>
+							<li><%= link_to '', student_calendar_path,
+                class: "glyphicon glyphicon-calendar",
+                data: {toggle: "tooltip", placement: "left", original_title: "行事曆"} %>
+              </li>
 							<li><%= link_to '', {controller: 'announces', action: :new},
 								class: "glyphicon glyphicon-plus",
 								data: {toggle: "tooltip", placement: "left", original_title: "新增公告"}%>
