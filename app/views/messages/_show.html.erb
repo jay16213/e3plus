@@ -1,63 +1,67 @@
 <% announce.messages.each do |message| %>
 	<!--if message_id has a value, then this message is a reply-->
   <% if message.message_id == nil %>
-		<div class="media">
-			<a class="media-left" href="#">
- 	 			<img class="media-object" src="http://placehold.it/64x64" alt="">
-     	</a>
+	<div class="media">
+	  <a class="media-left" href="#">
+ 	 	<img class="media-object" src="http://placehold.it/64x64" alt="">
+      </a>
 
       <div class="media-body">
       	<h4 class="media-heading"><%= message.user.name %>
-        	<small><%= message.updated_at.strftime("%y %b %d") %></small>
-					<small style="display: inline-block;">
-        		<% if message.user_id == @user.id %>
-        	 		<%= button_to "刪除", message_path(message), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger btn-xs" %>
-        	  <% end %>
+          <small><%= message.updated_at.strftime("%y %b %d") %></small>
+			<small style="display: inline-block;">
+        	  <% if message.user_id == @user.id %>
+        	 	<%= link_to '',
+					message_path(message),
+					method: :delete,
+					data: { confirm: "確定刪除此留言?" },
+					class: "glyphicon glyphicon-trash btn btn-danger btn-xs" %>
+        	  	<% end %>
         	</small>
         </h4>
         <%= simple_format(message.content) %>
-        <small>
-        	<!-- reply for this message -->
-          <% if message.message_id == nil %>
-          	<%= simple_form_for @message, url: messages_path do |f| %>
-            	<!--hidden field won't show up so needn't add any html tags-->
-              	<%= f.hidden_field :user_id, value: @user.id %>
-        	      <%= f.hidden_field :announce_id, value: announce.id %>
-   	            <%= f.hidden_field :message_id, value: message.id %>
-
-                <!--input content-->
-                <%= f.label :content, "留言", class: "sr-only" %>
-								<div style="width: 90%;">
-            	    <%= f.text_area :content, class: "form-control", rows: "1" %>
-								</div>
-                <%= f.submit "回覆", class: "btn btn-info" %>
-            <% end %>
-       		<% end %>
-        </small>
-
       	<!-- Nested Comment -->
       	<div class="media">
-        	<!-- show replies for this message -->
-        	<% message.replies.each do |reply| %>
-          	<a class="pull-left" href="#">
-          		<img class="media-object" src="http://placehold.it/64x64" alt="">
-          	</a>
-          	<div class="media-body">
-              	<h4 class="media-heading"><%= reply.user.name %>
-              		<small><%= reply.updated_at.strftime("%y %b %d") %></small>
-              		<small style="display: inline-block;">
-                		<% if reply.user_id == @user.id %>
-                			<%= link_to "刪除", message_path(reply), method: :delete, data: { confirm: "確定刪除此留言?" }, class: "btn btn-danger btn-xs" %>
-                		<% end %>
-              		</small>
-              	</h4>
-              	<%= simple_format(reply.content) %>
-								<br>
-          	</div>
-        	<% end %>
+          <!-- show replies for this message -->
+          <% message.replies.each do |reply| %>
+            <a class="pull-left" href="#">
+          	  <img class="media-object" src="http://placehold.it/64x64" alt="">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= reply.user.name %>
+                <small><%= reply.updated_at.strftime("%y %b %d") %></small>
+              	  <small style="display: inline-block;">
+                    <% if reply.user_id == @user.id %>
+                	  <%= link_to "",
+					  	  message_path(reply),
+						  method: :delete,
+						  data: { confirm: "確定刪除此留言?" },
+						  class: "glyphicon glyphicon-trash btn btn-danger btn-xs" %>
+                    <% end %>
+              	  </small>
+              </h4>
+              <%= simple_format(reply.content) %><br>
+            </div>
+          <% end %>
       	</div> <!-- End Nested Comment -->
+		<small>
+          <!-- reply for this message -->
+          <% if message.message_id == nil %>
+          	<%= simple_form_for @message, url: messages_path do |f| %>
+              <!--hidden field won't show up so needn't add any html tags-->
+              <%= f.hidden_field :user_id, value: @user.id %>
+        	  <%= f.hidden_field :announce_id, value: announce.id %>
+   	          <%= f.hidden_field :message_id, value: message.id %>
 
-			</div>
-		</div>
-	<% end %>
+              <!--input content-->
+			  <div style="width: 90%;">
+            	<%= f.text_area :content, class: "form-control", rows: "1", placeholder: "回覆此樓" %>
+			  </div>
+              <%= f.submit "回覆", class: "btn btn-info" %>
+            <% end %>
+       	  <% end %>
+        </small>
+	  </div>
+	</div>
+  <% end %>
 <% end %>

@@ -12,14 +12,14 @@
         <!--list all announces-->
         <% announces.each do |announce| %>
             <tr>
-								<% case announce.tag.name %>
-									<% when '一般' %>
-										<td><span class="label label-info"><%= announce.tag.name %></span></td>
-									<% when '作業' %>
-										<td><span class="label label-warning"><%= announce.tag.name %></span></td>
-									<% when '考試' %>
-										<td><span class="label label-danger"><%= announce.tag.name %></span></td>
-								<% end %>
+                <% case announce.tag.name %>
+                    <% when '一般' %>
+                        <td><span class="label label-info"><%= announce.tag.name %></span></td>
+                    <% when '作業' %>
+                        <td><span class="label label-warning"><%= announce.tag.name %></span></td>
+                    <% when '考試' %>
+                        <td><span class="label label-danger"><%= announce.tag.name %></span></td>
+                <% end %>
                 <td><%= announce.course.name %></td>
                 <td><%= link_to announce.topic, announce_path(announce) %></td>
                 <td><%= announce.created_at.strftime("%y %m %d") %></td>
@@ -28,8 +28,12 @@
                 <!--func for ta-->
                 <% if @user.identity == 'ta' %>
                     <!-- to-do add icon -->
-                    <td><%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %></td>
-                    <td><%= button_to "刪除公告", announce_path(announce), method: :delete, data: { confirm: "確定刪除此公告?" }, class: "btn btn-danger btn-xs" %></td>
+                    <td><%= link_to  '', edit_announce_path(announce),
+                            class: "glyphicon glyphicon-pencil btn btn-primary btn-xs" %></td>
+                    <td><%= link_to '', announce_path(announce),
+                            method: :delete,
+                            data: { confirm: "確定刪除此公告?" },
+                            class: "glyphicon glyphicon-trash btn btn-danger btn-xs" %></td>
                 <% end %>
             </tr>
         <% end %>

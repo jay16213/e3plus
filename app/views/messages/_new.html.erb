@@ -1,19 +1,12 @@
-<div class="row">
-	<div class="col-lg-12">
-		<h3>留言</h3>
-	</div>
-</div>
 <%= simple_form_for @message, url: messages_path do |f| %>
     <!--hidden field won't show up so needn't add any html tags-->
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.hidden_field :announce_id, value: announce.id %>
     <!--******************************************-->
     <!--input content-->
-    <%= f.label :content, "留言", class: "sr-only" %>
-		<div style="width: 90%;">
-    	<%= f.text_area :content, class: "form-control", rows: "1" %>
-		</div>
+	<div style="width: 90%;">
+    	<%= f.text_area :content, class: "form-control", rows: "1", placeholder: "留個言吧" %>
+	</div>
    	<%= f.submit "留言", class: "btn btn-info" %>
     <!---->
 <% end %>
-<br>

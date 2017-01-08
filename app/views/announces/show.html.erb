@@ -15,14 +15,17 @@
 					<p class="lead">發佈日期：<%= @announce.created_at %></p><!--create time-->
 					<p class="lead">deadline : <%= @announce.deadline %></p>
 					<p class="lead">內容：<br><%= @announce.content %></p>
-
-					<!--file path: messages/_new.html.erb-->
-					<!-- leave a new message -->
-					<%= render partial: 'messages/new', locals: { announce: @announce } %>
-
+					<div class="row">
+						<div class="col-lg-12">
+							<h3>留言</h3>
+						</div>
+					</div>
 					<!--file path: messages/_show.html.erb-->
 					<!--show messages & replies-->
 					<%= render partial: 'messages/show', locals: { announce: @announce } %>
+					<!--file path: messages/_new.html.erb-->
+					<!-- leave a new message -->
+					<%= render partial: 'messages/new', locals: { announce: @announce } %>
 				</div>
 			</div>
 	</div>
