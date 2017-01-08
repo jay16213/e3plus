@@ -1,0 +1,50 @@
+.simple-calendar {
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+}
+.calendar-heading {
+  text-align: center;
+  margin-bottom: 2px;
+  font-size: 20px;
+}
+
+.week {
+  text-align: center;
+}
+
+.wday-0 {
+  background-color: #F8F8FF;
+}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {
+  background-color: #F8F8FF;
+}
+
+.today {
+  background-color: #FFEEDD;
+}
+
+.start-date {}
+
+.prev-month {
+  color: #AAAAAA;
+}
+.next-month {
+  color: #AAAAAA;
+}
+.current-month {
+  font-weight: bold;
+}
+
+.has-events {
+}
+.day {
+  }
+.event {
+  color: #F75000;
+}

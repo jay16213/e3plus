@@ -16,9 +16,9 @@ class LoginController < ApplicationController
                 #redirect to different pages depend on identity
                 case user.identity
                     when "student"
-                        redirect_to :action => 'student_index', :controller => 'main'
+                        redirect_to :student_index
                     when "ta"
-                        redirect_to :action => 'ta_index', :controller => 'main'
+                        redirect_to :ta_index
                     else
                         flash[:notice] = "系統錯誤！請稍候再試"
                 end
@@ -34,9 +34,9 @@ class LoginController < ApplicationController
 
   #logout action
   def logout
+    
+    session[:user_id] = nil
+    redirect_to :action => 'login'
   end
 
-  #list users
-  def list_users
-  end
 end

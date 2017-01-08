@@ -5,6 +5,8 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 *.rbc
+*.sqlite3
+public/hws/
 capybara-*.html
 .rspec
 /log

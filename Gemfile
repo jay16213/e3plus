@@ -8,7 +8,7 @@ gem 'sqlite3'
 # Use bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 3.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -29,6 +29,13 @@ gem 'therubyracer'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+gem "simple_calendar", "~> 2.0"
+
+gem 'simple_form'
+
+#hw uploader
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

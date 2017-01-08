@@ -1,0 +1,37 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>標籤</th>
+            <th>課程</th>
+            <th>標題</th>
+            <th>發佈時間</th>
+            <th>dead line</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--list all announces-->
+        <% announces.each do |announce| %>
+            <tr>
+								<% case announce.tag.name %>
+									<% when '一般' %>
+										<td><span class="label label-info"><%= announce.tag.name %></span></td>
+									<% when '作業' %>
+										<td><span class="label label-warning"><%= announce.tag.name %></span></td>
+									<% when '考試' %>
+										<td><span class="label label-danger"><%= announce.tag.name %></span></td>
+								<% end %>
+                <td><%= announce.course.name %></td>
+                <td><%= link_to announce.topic, announce_path(announce) %></td>
+                <td><%= announce.created_at.strftime("%y %m %d") %></td>
+                <td><%= announce.deadline %></td>
+
+                <!--func for ta-->
+                <% if @user.identity == 'ta' %>
+                    <!-- to-do add icon -->
+                    <td><%= link_to  "修改公告", controller: 'announces', action: :edit, id: announce.id %></td>
+                    <td><%= button_to "刪除公告", announce_path(announce), method: :delete, data: { confirm: "確定刪除此公告?" }, class: "btn btn-danger btn-xs" %></td>
+                <% end %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
