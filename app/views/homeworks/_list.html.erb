@@ -14,7 +14,7 @@
            	<td width="20%"><%= hw.announce.course.name %></td>
            	<td width="30%"><%= hw.announce.topic %></td>
            	<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
-           	<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           	<td width="10%"><%= '已繳交' %></td>
            	<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
         	</tr>
                 
@@ -23,7 +23,7 @@
            		<td width="20%"><%= hw.announce.course.name %></td>
            		<td width="30%"><%= hw.announce.topic %></td>
            		<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
-           		<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           		<td width="10%"><%= '未繳交' %></td>
            		<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
 			</tr>
                 
@@ -32,7 +32,7 @@
      		  	<td width="20%"><%= hw.announce.course.name %></td>
            		<td width="30%"><%= hw.announce.topic %></td>
            		<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
-           		<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           		<td width="10%"><%= '未繳交' %></td>
            		<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
 			</tr>
                 
@@ -41,7 +41,7 @@
            		<td width="20%"><%= hw.announce.course.name %></td>
            		<td width="30%"><%= hw.announce.topic %></td>
            		<td width="15%"><%= hw.announce.deadline.to_formatted_s(:short) %></td>
-           		<td width="10%"><%= hw.status > 0? '未繳交' : '已繳交' %></td>
+           		<td width="10%"><%= '未繳交' %></td>
            		<td width="4%"><%= link_to '繳交', action: :show, id: hw.id, class: "btn btn-danger" %></td>
 			</tr>
      	<% end %>
