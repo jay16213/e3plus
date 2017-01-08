@@ -34,23 +34,19 @@
             </div>
 
             <!-- Top Menu Items -->
-<<<<<<< HEAD
             <ul class="nav navbar-nav navbar-right self_nav-right">
 							<li><%= link_to '', :login_logout,
 								class: "glyphicon glyphicon-log-out",
 								data: {toggle: "tooltip", placement: "left", original_title: "登出"}%>
 							</li>
-              <li><a class="glyphicon glyphicon-calendar" href="#"></a></li>
+              <li><%= link_to '', student_calendar_path,
+                class: "glyphicon glyphicon-calendar",
+                data: {toggle: "tooltip", placement: "left", original_title: "行事曆"} %>
+              </li>
 							<li><%= link_to '', homeworks_index_path,
 								class: "glyphicon glyphicon-list-alt",
 								data: {toggle: "tooltip", placement: "left", original_title: "作業清單"}%>
 							</li>
-=======
-            <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to '登出', :login_logout %></li>
-              <li><%= link_to '行事曆', :student_calendar %></li>
-              <li><a href="#">作業清單</a></li>
->>>>>>> calender
             </ul>
 
             <!-- Sidebar Menu Items - This collapse when window is small -->
