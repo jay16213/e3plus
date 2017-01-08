@@ -1,0 +1,20 @@
+body {
+  background-color: #444444;
+}
+
+.form-block {
+    position: relative;
+    margin:50px auto;
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+.btn-block {
+    position: relative;
+    margin: auto;
+}
+
+#title {
+  text-align: center;
+}
