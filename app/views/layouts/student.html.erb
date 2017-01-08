@@ -7,6 +7,8 @@
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= stylesheet_link_tag 'student', media: 'all', 'data-turbolinks-track' => true %>
 		<!-- add javascript at app/assets/javascript/student.js -->
+    <%= stylesheet_link_tag 'calendar.css' %>
+		<!-- add javascript at app/assets/javascript/script_main.js -->
 		<%= javascript_include_tag "main" %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'student', 'data-turbolinks-track' => true %>
@@ -32,6 +34,7 @@
             </div>
 
             <!-- Top Menu Items -->
+<<<<<<< HEAD
             <ul class="nav navbar-nav navbar-right self_nav-right">
 							<li><%= link_to '', :login_logout,
 								class: "glyphicon glyphicon-log-out",
@@ -42,6 +45,12 @@
 								class: "glyphicon glyphicon-list-alt",
 								data: {toggle: "tooltip", placement: "left", original_title: "作業清單"}%>
 							</li>
+=======
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to '登出', :login_logout %></li>
+              <li><%= link_to '行事曆', :student_calendar %></li>
+              <li><a href="#">作業清單</a></li>
+>>>>>>> calender
             </ul>
 
             <!-- Sidebar Menu Items - This collapse when window is small -->

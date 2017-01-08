@@ -17,3 +17,6 @@ Rails.application.config.assets.precompile += %w( student.coffee )
 
 Rails.application.config.assets.precompile += %w( ta.scss )
 Rails.application.config.assets.precompile += %w( ta.coffee )
+
+Rails.application.config.assets.precompile += %w( calendar.css )
+

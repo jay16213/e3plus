@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   get 'student/index'
   get 'student/course'
-  get 'student/:id/edit_msg' => 'student#edit_msg', as: :student_edit_msg
-  
+  get 'student/calendar'
+
   get 'ta/index'
   get 'ta/course'
   get 'ta/:id/edit_msg' => 'ta#edit_msg', as: :ta_edit_msg
