@@ -24,6 +24,9 @@ class StudentController < AnnouncesController
         @homeworks = Announce.where(course_id: @course, tag_id: 3).order("created_at desc")
     end
     
+    def calendar
+    end
+
     private
 
     def set_user_info
@@ -34,10 +37,5 @@ class StudentController < AnnouncesController
 
     def set_card
         @cards = Announce.where(course_id: @courses, tag_id: [2,3]).order("deadline")
-    end
-
-    def calendar
-        @user = User.find(session[:user_id])
-        @courses = @user.courses.all
     end
 end
