@@ -1,6 +1,6 @@
 class ChangeAnnounceTagColumn < ActiveRecord::Migration
   def change
-    rename_column :announces, :tag, :tag_id
-    change_column :announces, :tag_id, :integer, 'integer USING CAST(:tag_id AS integer)'
+    remove_column :announces, :tag
+    add_column :announces, :tag_id, :integer
   end
 end
